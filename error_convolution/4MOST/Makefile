@@ -1,0 +1,44 @@
+
+
+SUB = data_realizations_4MOST.o trans_gal2eq.o error_obs_4MOST.o error_convolution_new.o trans_eq2gal.o error_par_pm_vr.o matrix_t.o matrix_inverse.o gasdevdbl.o ran2dbl.o ludcmp.o lubksb.o
+
+
+
+data_realizations_4MOST :  $(SUB)  
+	f77  -o data_realizations_4MOST $(SUB) -L/usr/local/lib 
+
+gasdevtest: gasdevtest.o gasdevdbl.o ran2dbl.o
+	f77 -o gasdev gasdevtest.o gasdevdbl.o ran2dbl.o
+gasdevtest.o: gasdevtest.f
+	f77  -c -g gasdevtest.f
+gasdevdbl.o: gasdevdbl.f
+	f77  -c -g gasdevdbl.f
+ran2dbl.o: ran2dbl.f
+	f77  -c -g ran2dbl.f
+
+data_realizations_gaia.o: data_realizations_gaia.f
+	f77  -c -g data_realizations_gaia.f    
+trans_gal2eq.o: trans_gal2eq.f
+	f77 -c -g trans_gal2eq.f
+trans_eq2gal.o: trans_eq2gal.f
+	f77 -c -g trans_eq2gal.f
+error_obs_4MOST.o: error_obs_4MOST.f
+	f77 -c -g error_obs_4MOST.f
+error_convolution_new.o: error_convolution_new.f
+	f77 -c -g error_convolution_new.f
+error_par_pm_vr.o: error_par_pm_vr.f
+	f77 -c -g error_par_pm_vr.f
+matrix_t.o: matrix_t.f
+	f77 -c -g matrix_t.f
+matrix_inverse.o: matrix_inverse.f
+	f77 -c -g matrix_inverse.f
+# these are local versions with doubles
+ludcmp.o: ludcmp.f
+	  f77 -c ludcmp.f
+lubksb.o: lubksb.f
+	  f77 -c lubksb.f
+clean:
+	rm -f $(SUB) data_realizations_4MOST
+
+
+

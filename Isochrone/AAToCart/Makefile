@@ -3,10 +3,18 @@
 
 CC = gcc -g
 
+# for galileo
 MATHEMATICA_INSTALL_DIR = /Software/users/math/Mathematica_8.0.1
 MLINKDIR = ${MATHEMATICA_INSTALL_DIR}/SystemFiles/Links/MathLink/DeveloperKit/
-
 SYS = Linux-x86-64
+MLIBS = -lML64i3 -lpthread -lrt -lstdc++
+
+#for my laptop
+#MATHEMATICA_INSTALL_DIR = /Applications/Mathematica.app/
+#MLINKDIR = ${MATHEMATICA_INSTALL_DIR}/SystemFiles/Links/MathLink/DeveloperKit/
+#SYS = 
+#MLIBS = -lMLi3 -lstdc++ -framework Foundation
+
 CADDSDIR = ${MLINKDIR}/${SYS}/CompilerAdditions
 
 INCDIR = ${CADDSDIR}
@@ -14,7 +22,7 @@ LIBDIR = ${CADDSDIR}
 
 MPREP = "${CADDSDIR}/mprep"
 MCC = "${CADDSDIR}/mcc"
-MLIBS = -lML64i3 -lpthread -lrt -lstdc++
+
 
 EXTRALIBS = -lm -lgsl -lgslcblas
 

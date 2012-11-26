@@ -20,8 +20,8 @@ int main(void) {
   double h, c, ecc, o2, o3, eta, inc; 
 
   //assign debugging values to J and th
-  double J[3] = {0.0464173, -3.39341, 5.50482};
-  double th[3] = {4.17091, 3.01349, 5.90096};
+  double J[3] = {-5.42583, 8.25335, 1.98504};
+  double th[3] = {1.00059, 2.00102, 6.00004};
  
   // get auxiliary variables
  

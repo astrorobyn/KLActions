@@ -77,12 +77,19 @@ double phiorb_from_aa(double th[3], double J[3], double omega2, double omega3, d
   double tanterm1, tanterm2, phiorb;
 
   if(fabs(1-ecc)<TINY)     //checks for circular orbits to avoid overflow
+  
     tanterm1=M_PI/2.0;
+  
   else
-    tanterm1 = atan(sqrt((1.+ecc)/(1.-ecc)) * tan(0.5*eta));
+  
+    tanterm1 = fmod(atan(sqrt((1.+ecc)/(1.-ecc)) * tan(0.5*eta)),M_PI);
 
-  tanterm2 = sqrt((1. + ecc+2.* b_ISO/c)/(1. - ecc+2.* b_ISO/c)) * tan(0.5*eta);
-  phiorb = th[2] - omega2/omega3 * th[3] + tanterm1 + atan(tanterm2)/sqrt(1. + FourGMb /(J[2] * J[2]));
+  tanterm2 = fmod(atan(sqrt((1. + ecc+2.* b_ISO/c)/(1. - ecc+2.* b_ISO/c)) * tan(0.5*eta)),M_PI);
+  
+  tanterm1 = tanterm1<0 ? tanterm1 + M_PI : tanterm1;
+  tanterm2 = tanterm2<0 ? tanterm2 + M_PI : tanterm2;
+
+  phiorb = th[2] - omega2/omega3 * th[3] + tanterm1 + tanterm2/sqrt(1. + FourGMb /(J[2] * J[2]));
 
  //put the indexing back!
   J++;
