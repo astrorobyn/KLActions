@@ -67,11 +67,11 @@ static struct func {
 
 static const char* evalstrs[] = {
 	"CartToAA::usage = \"CartToAA[Miso, biso, {x,y,z}, {vx,vz,vz}] ret",
-	"urns the three actions {Lz,L,Jr} in the isochrone potential with",
-	" total mass Miso (in kpc^3/Myr^2) and scale radius biso (in kpc)",
-	", given the Cartesian phase-space coordinates x and v. If the or",
-	"bit is unbound the program returns the nonsense values {-100,-10",
-	"0,-100} for the actions.\"",
+	"urns the three actions {Lz,L,Jr} and the conjugate angles, in th",
+	"e isochrone potential with total mass Miso (in kpc^3/Myr^2) and ",
+	"scale radius biso (in kpc), given the Cartesian phase-space coor",
+	"dinates x and v. If the orbit is unbound the program returns the",
+	" nonsense values {-100,-100,-100} for the actions.\"",
 	(const char*)0,
 	(const char*)0
 };

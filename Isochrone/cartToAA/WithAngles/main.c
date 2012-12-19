@@ -3,7 +3,7 @@
 #include <math.h>
 
 #include "bodyAux.h"
-#include "isochroneMap.h"
+#include "isochroneFunctions.h"
 #include "io.h"
 #include "types.h"
 #include "vector.h"
@@ -12,17 +12,7 @@
 
 double M_ISO, B_ISO;
 
-double theta1(double J1, double J2, double q[3]) {
 
-  double r = norm(q);
-  double ph = phi(q);
-  double z = q[2];
- 
-  double sinu = J1 * z / sqrt((J2*J2-J1*J1)*(r*r-z*z));
-
-  return ph - asin(sinu); 
-
-}
 
 int main (int argc, const char * argv[]) {
 

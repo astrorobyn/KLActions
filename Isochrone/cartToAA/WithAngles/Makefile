@@ -38,8 +38,8 @@ LDFLAGS =  -g -lm -lgsl -lgslcblas
 
 #names of executable and objects
 EXEC = cartToAA
-ALLC = main.o isochroneMap.o bodyAux.o io.o 
-ALLMATH = main_math.o ${EXEC}tm.o bodyAux.o 
+ALLC = main.o isochroneFunctions.o bodyAux.o io.o 
+ALLMATH = main_math.o ${EXEC}tm.o bodyAux.o isochroneFunctions.o
 
 all: ${EXEC}_math ${EXEC}_c
 
@@ -58,8 +58,8 @@ ${EXEC}tm.o: ${EXEC}tm.c
 ${EXEC}tm.c: ${EXEC}.tm
 	${MPREP} $? -o ${EXEC}tm.c
 
-isochroneMap.o: isochroneMap.c isochroneMap.h
-	$(CC) -c ${CFLAGS} isochroneMap.c -o $@
+isochroneFunctions.o: isochroneFunctions.c isochroneFunctions.h
+	$(CC) -c ${CFLAGS} isochroneFunctions.c -o $@
 
 bodyAux.o: bodyAux.c bodyAux.h
 	$(CC) -c ${CFLAGS} bodyAux.c -o $@

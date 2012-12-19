@@ -4,41 +4,16 @@
 
 #include <mathlink.h>
 
+#include "isochroneFunctions.h"
 #include "bodyAux.h"
 #include "types.h"
 #include "vector.h"
 
 #define KM_S_TO_KPC_MYR 0.001022729843472133
 
-static double M_ISO;
-static double B_ISO;
+//these hold the mass and scale radius of the potential
 
-//functions for energy, angular momentum, etc
-
-double Phi(double r) {
-	double p = -1.0 * M_ISO / (B_ISO + sqrt( r * r + B_ISO * B_ISO));
-	return p;
-}
-
-double H(double q[2], double qdot[2]) {
-  	double h = Phi(q[0]) + 0.5 * (qdot[0] * qdot[0] + q[0] * q[0] * qdot[1] * qdot[1]);
-
-	return h;
-}
-
-double Lmag(double q[2], double qdot[2]) {
-	return q[0] * q[0] * qdot[1];
-}
-
-
-double Jr(double q[2], double qdot[2]) {
-	
-	double ham = H(q,qdot);
-	double J2 = Lmag(q, qdot);
-	
-	return M_ISO / sqrt(-2.0 * ham) - 0.5 * (J2 + sqrt(J2 * J2 + 4.0 * M_ISO * B_ISO));
-	
-}
+double M_ISO, B_ISO;
 
 //main function
 
@@ -46,7 +21,7 @@ void cart_to_aa(double Miso, double biso, double x[3], long xlen, double v[3], l
 	
   body *b;
 	
-  double J[3];
+  double Jth[6];
   double q[2],qdot[2];
  
 	
@@ -68,18 +43,28 @@ void cart_to_aa(double Miso, double biso, double x[3], long xlen, double v[3], l
 		
   if(H(q,qdot) > 0) {
     //    MLEvaluateString(stdlink,"Print[\"Error: Orbit is unbound\"]"); 
-    for(i=0;i<3;i++) 
-      J[i]=-100.00;
-    MLPutReal64List(stdlink, J, 3);
+    for(i=0;i<6;i++) {
+      Jth[i]=-100.00;
+      }
+    MLPutReal64List(stdlink, Jth, 6);
+    
 
   } else {
 
     //calculate actions 
-    J[0] = b->q[0]*b->p[1] - b->q[1]*b->p[0];
-    J[1] = Lmag(q, qdot);
-    J[2] = Jr(q, qdot);
-    MLPutReal64List(stdlink, J, 3);
+    Jth[0] = b->q[0]*b->p[1] - b->q[1]*b->p[0];
+    Jth[1] = Lmag(q, qdot);
+    Jth[2] = Jr(q, qdot);
 
+
+    //calculate angles
+    double etaval = etaZero(q, qdot);
+    double ph = phi(b->q);
+    Jth[3]=theta1(Jth[0], Jth[1], b->q);
+    Jth[4]=theta2(etaval,ph,q,qdot);
+    Jth[5]=theta3(etaval,q,qdot);
+ 
+    MLPutReal64List(stdlink, Jth, 6);
   }
 
   free(b);
