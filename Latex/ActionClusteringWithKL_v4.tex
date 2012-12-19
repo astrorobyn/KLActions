@@ -1,7 +1,9 @@
-\documentclass[useAMS,usenatbib,a4paper]{mn2e}
+\documentclass{emulateapj}
 
-\pdfpagewidth=\paperwidth 
-\pdfpageheight=\paperheight
+%\pdfpagewidth=\paperwidth 
+%\pdfpageheight=\paperheight
+
+%%% Custom Macros %%%
 
 \newcommand{\sub}[2]{\ensuremath{#1_{\mathrm{#2}}}}
 \newcommand{\super}[2]{\ensuremath{#1^{\mathrm{#2}}}}
@@ -11,22 +13,35 @@
 %\input{JournalAbbrevs.tex}
 
 
-\bibliographystyle{astron}
+%\bibliographystyle{astron}
 
+
+%%% Packages %%%
 \usepackage{graphicx} 
 \usepackage{epstopdf} 
 \usepackage{amsmath}
 \usepackage{hyperref}
 
+%%% Running Head info %%%
+
+\shorttitle{Action-space clustering of tidal streams}
+\shortauthors{Sanderson & Helmi 2013}
 \begin{document}
 
-\title{Action-space clustering of tidal streams can be used to map the Galactic potential}
+\title{Action-space clustering of tidal streams to map the Galactic potential}
 %authors in no particular order
-\author[]{Robyn E. Sanderson, Amina Helmi${}^{1}$, David Hogg${}^{2}$\\
-${}^{1}$Kapteyn Astronomical Institute, P.O. Box 800, 9700 AV Groningen, The Netherlands\\
-${}^{2}$NYU}
+\author{Robyn E. Sanderson}
+\affil{Kapteyn Astronomical Institute}
+\affil{P.O. Box 800, 9700 AV Groningen, The Netherlands}
+\email{sanderson@astro.rug.nl}
+\and
+\author{Amina Helmi} 
+\affil{Kapteyn Astronomical Institute}
+\affil{P.O. Box 800, 9700 AV Groningen, The Netherlands}
+\email{ahelmi@astro.rug.nl}
 
-\maketitle
+
+%\maketitle
 
 \begin{abstract}
 We use a simple example to demonstrate that, given a parameterized model of the Galactic potential, the set of parameters retrieved by maximizing the Kullback-Leibler divergence of a set of stars initially clustered in action space (e.g. stars in tidal streams) are the input parameters. This method will allow us to capitalize on the existence of kinematic substructures in the Galaxy to map its gravitational potential. Adding more streams improves the constraints on the best-fit parameters by breaking degeneracies between parameters; adding more stars to existing streams improves the tightness of the constraints. We also demonstrate that Gaia will measure the phase-space positions of red giant stars with sufficient accuracy to use this technique, and that ground-based spectroscopic follow-up to obtain radial velocities of faint halo stars offers substantial improvement over results obtained with Gaia data alone. 
@@ -46,11 +61,11 @@ The Kullback-Liebler divergence (KLD) is a way of comparing the degree of cluste
  D_{KL}(p\to q) \equiv \int p(\mathbf{x}) \log \frac{p(\mathbf{x})}{q(\mathbf{x})} d\mathbf{x}.
 \end{equation}
 The KLD is not symmetric; it can be considered a measure of the relative entropy between $p$ and $q$. The lower the entropy of $p$ relative to $q$, the higher the value of $D_{KL}$ (Figure \ref{fig:1Dexample}).
-\begin{figure*}
- \includegraphics[width=0.95\textwidth]{KLDiv_1D_Example}
+\begin{figure}
+\plotone{Figures/KLDiv_1D_Example}
 \caption{If the distribution $p$ (blue line) is much more clustered than distribution $q$ (pink line) as shown in the example on the left (upper panel), then the integrand (lower panel) is large and $D_{KL}$ is large. A distribution $p$ that is only somewhat less smooth than $q$ (right column) has a lower $D_{KL}$.}
 \label{fig:1Dexample}
-\end{figure*}
+\end{figure}
 
 If a set of $N$ points $\mathbf{x}_i$ are independent random deviates drawn from $p$, then we can use them to do a Monte Carlo approximation to the integral:
 \begin{equation}
@@ -81,9 +96,7 @@ The tildes are intended to distinguish the distributions $\tilde{O}$ and $\tilde
 
 As the parameters approach the best-fit potential, the value of $\tilde{D}_{KL}$ will increase as the actions of stars in the various streams cluster more tightly together. Figure \ref{fig:actionClustering} shows a simple example using the radial action of the isochrone potential, a simple two-parameter potential for which the actions have analytic expressions. Changing either of the parameters away from the input value produces a broader distribution and hence a smaller $\tilde{D}_{KL}$. In this example, the enclosed-mass degeneracy is also evident, since the distribution varies in opposite directions for a change of the same sign in $M$ or $b$. This means that raising $M$ can be compensated by lowering $b$, and vice versa. The means to break this degeneracy is also evident: streams centered around different values of $J_r$ have distributions that respond differently to changes in $M$ and $b$, especially at large $J_r$ (more radial orbits). Adding more streams probes a larger range of orbits and breaks the enclosed-mass degeneracy.
 \begin{figure*}
- \begin{tabular}{cc}
- \includegraphics[width=0.45\textwidth]{ActionClusteringFigureMass} & \includegraphics[width=0.45\textwidth]{ActionClusteringFigureRadius}
-\end{tabular}
+\plottwo{Figures/ActionClusteringFigureMass}{Figures/ActionClusteringFigureRadius}
 \caption{Given coordinates $\mathbf{x},\mathbf{p})$ for a set of stream stars, the distribution of calculated radial actions $J_r$ is most clustered when the potential parameters (in this case the scale mass $M$ and scale radius $b$) are equal to the input values. This example uses three streams with a total of 50,000 ``stars''; the distribution $P(J_r)$ is computed by a one-dimensional nearest-neighbor density estimator with $n_{NN}=50$.}
 \label{fig:actionClustering}
 \end{figure*}
@@ -146,7 +159,7 @@ We reperesent each stream as a multivariate Gaussian at a locations $\mathbf{I}_
 The location $\mathbf{I}_{0,s}$ determines the orbit of the stream: its apo- and pericenter distances, orientation, and eccentricity. The covariance represents the kinetic ``temperature'' of the stream: a smaller covariance value means a colder stream (e.g. from a globular cluster) while a larger value corresponds to the disruption of a hotter or more massive object (like the Sagittarius dwarf). In the case of the isochrone potential, the third action, $L_z$ can represented by the orbital inclination $i$, which is a constant of the motion. The z-component of the angular momentum is then just $L \sin i$. The angle variable associated with this action is also a constant of the motion (in orbit terminology, it represents the longitude of the ascending node). We assume each stream is normally distributed in these two coordinates as well, with a small spread. An example of the resulting action distribution is shown in the left panel of Figure \ref{fig:initSetup}.
 \begin{figure*}
  \begin{tabular}{ccc}
-\includegraphics[width=0.32\textwidth]{InitialActions} & \includegraphics[width=0.32\textwidth]{InitialJrTheta5} & \includegraphics[width=0.32\textwidth]{InitXZ5}
+\includegraphics[width=0.32\textwidth]{Figures/InitialActions} & \includegraphics[width=0.32\textwidth]{Figures/InitialJrTheta5} & \includegraphics[width=0.32\textwidth]{Figures/InitXZ5}
 \end{tabular}
 \caption{Left: initial distribution of ``streams'' in action space. Center: initial distribution in a projection of angle-action space. Right: Projection of initial positions of the ``streams'' with measured one-dimensional dispersions in position ($\sigma_r$) and velocity ($\sigma_v$). }
 \label{fig:initSetup}
@@ -162,7 +175,7 @@ Once we have a suitable set of initial angles, we evolve them forward in time fo
 We choose the evolution time $t$ to be different for each stream in the representation, so that some streams are still spatially coherent on the sky and others are well phase-mixed, as shown in the inset of Figure \ref{fig:streams}. For this work we choose $t$ randomly from 500 Myr to 5 Gyr for each stream. Finally we use the evolved values of the angles to calculate the $(\mathbf{x},\mathbf{v})$ coordinates of the stars in each stream. An example of the result for a system with 5 streams is shown in Figure \ref{fig:streams}.
 
 \begin{figure}
- \includegraphics[width=0.45\textwidth]{FinalXZWithInset}
+\plotone{Figures/FinalXZWithInset}
 \caption{Projection in the $x$-$z$ plane of the positions of the stream stars after time-evolution. The yellow dot indicates the position of the Sun, which lies on the $x$ axis; the green and cyan circles indicate $\sub{d}{sun} < 10$ kpc and $\sub{d}{sun}<25$ kpc, respectively. Inset: result of the time-evolution in projected action-angle space. In this space the degree of phase-mixing of each stream is apparent: for example, the green stream is not completely phase-mixed since the ends of the distribution are still distinguishable, while the magenta stream forms a roughly solid band across the plot, indicating that the angle distribution is nearly uniform and the stream is well-mixed.}
 \label{fig:streams}
 \end{figure}
@@ -201,24 +214,14 @@ The second technical challenge in calculating the KLD is to establish a method f
 \begin{equation}
  T[\tilde{\mathbf{I}}_i(\mathbf{a})|\mathbf{a}] \equiv \frac{1}{\sqrt{(2 \pi)^k \det \mathbf{V}}} e^{-(\mathbf{I}-\mathbf{\mu})^T \mathbf{V}^{-1} (\mathbf{I}-\mathbf{\mu})/2},
 \end{equation} 
-where $\mathbf{\mu}$ are the means of the observed actions (first moment) and $\mathbf{V}$ is the covariance matrix (second moments). This choice guarantees that $\tilde{T}$ will be at least as smooth as $\tilde{O}$, but poses a technical problem that makes it very hard to use. As seen in Figure \ref{fig:actionClustering}, changing $\mathbf{a}$ away from the true values does not symmetrically broaden the density peaks associated with the streams. Instead it produces long tails to one side or the other of the distribution, sometimes with secondary peaks at the end of the tail (examples can be seen at large $J_r$ in both panels of the figure). The secondary peaks are a result of pile-ups (caustics) at the turning points of the stream orbits. These long tails tend to inflate the value of $\sub{D}{KL}$: they contain a relatively small number of stars compared to the total, so $\mathbf{\mu}$ and $\mathbf{V}$ are not changed too much, but they extend $\tilde{O}$ out to many times the width ($\sqrt{\det \mathbf{V}}$) of $\tilde{T}$, which drops off exponentially. Thus the few stars with the largest $\tilde{\mathbf{I}}$ can dominate the value of $\sub{D}{KL}$ for this choice of $\tilde{T}$, drowning out the true maximum not because $\tilde{O}$ is peaked, but because $\tilde{T}$ is very small (Figure \ref{fig:KLDGaussianSmooth}).
-
-\begin{figure*}
- \begin{tabular}{cc}
-\includegraphics[width=0.45\textwidth]{KLDGaussianRight} & \includegraphics[width=0.45\textwidth]{KLDGaussianWrong}
-\end{tabular}
-\caption{With the correct potential parameters ($M=2.7\times10^12 M_\odot$, $b=8.0$ kpc), using a Gaussian asthe comparison distribution is well-behaved (left). However with slightly wrong parameters ($M=2.5\times10^12 M_\odot$, $b=9.5$ kpc), the long tails at high $J_r$ inflate the value of $\sub{D}{KL}$ thanks to the extremely small values of $\tilde{T}$ (right).}
-\label{fig:KLDGaussianSmooth}
-\end{figure*}
+where $\mathbf{\mu}$ are the means of the observed actions (first moment) and $\mathbf{V}$ is the covariance matrix (second moments). This choice guarantees that $\tilde{T}$ will be at least as smooth as $\tilde{O}$, but poses a technical problem that makes it very hard to use. As seen in Figure \ref{fig:actionClustering}, changing $\mathbf{a}$ away from the true values does not symmetrically broaden the density peaks associated with the streams. Instead it produces long tails to one side or the other of the distribution, sometimes with secondary peaks at the end of the tail (examples can be seen at large $J_r$ in both panels of the figure). The secondary peaks are a result of pile-ups (caustics) at the turning points of the stream orbits. These long tails tend to inflate the value of $\sub{D}{KL}$: they contain a relatively small number of stars compared to the total, so $\mathbf{\mu}$ and $\mathbf{V}$ are not changed too much, but they extend $\tilde{O}$ out to many times the width ($\sqrt{\det \mathbf{V}}$) of $\tilde{T}$, which drops off exponentially. Thus the few stars with the largest $\tilde{\mathbf{I}}$ can dominate the value of $\sub{D}{KL}$ for this choice of $\tilde{T}$, drowning out the true maximum not because $\tilde{O}$ is peaked, but because $\tilde{T}$ is very small.
 
 
 To solve this problem we use a different strategy for obtaining $\tilde{T}$ that exploits the multidimensionality of the system and the fact that manipulating $\mathbf{a}$ changes $J_r$ but not $L$ for this potential. We consider the action space $\tilde{\mathbf{I}}$ to be two-dimensional with coordinates $(J_r, L)$, and construct $\tilde{O}$ in two dimensions from this set of coordinates. Then we retain the $J_r$ value in each pair and shuffle all the $L$ values, smoothing out the distribution in the dimension that is insensitive to $\mathbf{a}$ as shown in Figure \ref{fig:shuffL}. The trial distribution $\tilde{T}$ is then obtained from the shuffled points in the same way as $\tilde{O}$. The loss of information in one of the two dimensions again guarantees that $\tilde{T}$ will be less peaked than $\tilde{O}$, just as in the maximum-entropy distribution, but this method does not suffer from the same range problems since the ranges of the two distributions are identical by construction.
 
 \begin{figure*}
- \begin{tabular}{cc}
-\includegraphics[width=0.45\textwidth]{KLDShuffleRight} & \includegraphics[width=0.45\textwidth]{KLDShuffleWrong}
-\end{tabular}
-\caption{Using the multidimensional shuffle method, the value of $\sub{D}{KL}$ for the correct potential parameters  (left) is still larger than for incorrect ones (right), but long tails at large $J_r$ no longer artificially inflate the value of $\sub{D}{KL}$. The values of the potential parameters in these plots are the same as in Figure \ref{fig:KLDGaussianSmooth}}
+ \plottwo{Figures/KLDShuffleRight}{Figures/KLDShuffleWrong}
+\caption{Using the multidimensional shuffle method, the value of $\sub{D}{KL}$ for the correct potential parameters  ($M=2.7\times10^12 M_\odot$, $b=8.0$ kpc; left panel) is larger than for incorrect ones ($M=2.5\times10^12 M_\odot$, $b=9.5$ kpc; right panel). This method avoids the artificial inflation of $\sub{D}{KL}$ by long tails at large $J_r$.}
 \label{fig:shuffL}
 \end{figure*}
 
@@ -229,7 +232,7 @@ Before adding the step of convolving the star coordinates with observational err
 The effect of changing the number of streams is shown in Figure \ref{fig:HowManyStreams}. To create these sets of contours, $N$ streams with random center-of-mass orbits were produced via the method described in Section \ref{sec:process}. The streams contain an average of 1000 stars each. 
 
 \begin{figure*}
- \includegraphics[width=0.95\textwidth]{HowManyStreams}
+\plotone{Figures/HowManyStreams}
 \caption{Contours of $\sub{D}{KL}$ for various numbers of streams $N$. The contour colors are the same in all the plots; the contours indicate intervals of 0.1 in $\sub{D}{KL}$ and range from 0 (reddest) to 2.6 (yellowest). In each panel, the $x$ axis spans a range of $M$ values from $1.2$ to $4.3 \times 10^{12}\ M_\odot$; the $y$ axis spans a range of $b$ values from 0 to 16 kpc. The black lines cross at the input values of $M = 2.7 \times 10^{12}\ M_\odot$ and $b = 8.0$ kpc.}
 \label{fig:HowManyStreams}
 \end{figure*}
@@ -240,7 +243,7 @@ It is evident that with only one stream (upper left corner), the enclosed-mass d
 Figure \ref{fig:HowManyStars} shows the effect of changing the number of stars per stream. Based on the results in Figure \ref{fig:HowManyStreams} all these trials were made with 5 streams, enough that the contours are not sensitive to individual stream details. The same set of 5 randomly generated streams was resampled with different numbers of stars $N$.
 
 \begin{figure*}
- \includegraphics[width=0.95\textwidth]{HowManyStars}
+ \plotone{Figures/HowManyStars}
 \caption{Contours of $\sub{D}{KL}$ for various numbers $N$ of stars per stream. Again the contour colors are the same in all the plots but the contour interval in this case is 0.2. The contours range from 0 (reddest) to 3.4 (yellowest). The $x$ and $y$ axis ranges, and the black lines, are the same as in Figure \ref{fig:HowManyStreams}.}
 \label{fig:HowManyStars}
 \end{figure*}
@@ -269,20 +272,18 @@ We also tested the performance of our method when star positions and velocities 
 The distance of stars in the sample from the Sun is the most important factor in determining how many stars make the cut since this determines their apparent magnitude, which is the primary input to the error models. Both Gaia and the ground-based spectroscopic surveys have a target minimum apparent magnitude of $V=20$; Gaia will obtain radial velocities for stars with $V<17$ only. Figure \ref{fig:distanceHistogram} shows a histogram of the distances to the stars in the sample, marked with the maximum distances associated with these criteria for the two different absolute magnitudes used in this work. The total number of stars to the left of each of these lines is the base sample size for a given survey since anything to the right will not be observed. It is evident from the figure and Table \ref{tbl:cleanSampleSizes} that Gaia radial velocities alone will not allow us to include stars as faint as $M_V=4.5$ usefully into streams, while following up with ground-based spectroscopy can add a significant number of stars at this magnitude to streams in this distance range, especially given the fact that we expect many more stars with $M_v=4.5$ than  $M_V=1$. 
 
 \begin{figure}
- \includegraphics[width=0.45\textwidth]{dHist10}
+\plotone{Figures/dHist10}
 \caption{Histogram of distances from stream stars to the Sun (located at (8,0,0) kpc) for the 10-stream sample to be convolved with observational errors. The colored lines indicate distances corresponding to the given absolute/apparent magnitude pairs.}
 \label{fig:distanceHistogram}
 \end{figure}
 
 
 
-Figure \ref{fig:errorConvResults} shows the results for three of the four cases studied: we did not include the MSTO stars observed only with Gaia because so few had sufficiently small errors. Note that the case of MSTO stars with ground-based follow-up considers these stars alone, not added to the red giants; this is because we did not sample an appropriate ratio of the two populations so we cannot combine the two samples as would be done in principle. This means that not all the streams in the sample are included in this data set, explaining the slight bias and larger degree of degeneracy in this case compared to the other two. The improved RV coverage from ground-based spectroscopy significantly improves the ability to constrain the potential parameters relative to the Gaia-only case. 
+Figure \ref{fig:errorConvResults} shows the results for red-giant stars with and without ground-based follow-up. The improved RV coverage from ground-based spectroscopy significantly improves the ability to constrain the potential parameters relative to the Gaia-only case. 
 
 \begin{figure*}
- \begin{tabular}{ccc}
-\includegraphics[width=0.31\textwidth]{KL10x5000LogM2D} & \includegraphics[width=0.31\textwidth]{KLDivRGs4MOSt} & \includegraphics[width=0.31\textwidth]{KLDiv4MOST_MSTO}
-\end{tabular}
-\caption{Contours of $\sub{D}{KL}$ for Gaia only red giants (left), Gaia red giants with ground-based RVs (center), and Gaia MSTO stars with ground-based RVs (right). In all three plots the contours range from 0.05 to 0.75 in intervals of 0.1, except for the rightmost plot which goes up to 0.85. Note that the $M$ axis is now logarithmic.}
+\plottwo{Figures/KL10x5000LogM2D}{Figures/KLDivRGs4MOSt}
+\caption{Contours of $\sub{D}{KL}$ for Gaia only red giants (left) and for Gaia red giants with ground-based RVs (right). In both plots the contours range from 0.05 to 0.75 in intervals of 0.1. Note that the $M$ axis is now logarithmic.}
 \label{fig:errorConvResults}
 \end{figure*}
 
@@ -297,6 +298,8 @@ We explore the effect of observational errors by considering a case where 10 str
 
 
 We have now laid the framework for exploring several important questions related to potential constraints in future work. First, the real Milky Way potential is not an exact copy of a parameterized model. We intend to explore the effect of imposing a fitted parameterization different from the input model: what parameters are recovered and what is their relation to the true potential? Second, some of the most interesting features of the halo concern its departures from spherical symmetry; we intend to expand the method to handle at least axisymmetric halos so that we can determine how well streams will constrain the flattening. Third, actions are superior to generic constants of the motion (such as energy) in part because they are adiabatically invariant; we intend to explore the effect of a slowly growing Milky Way in future work. Finally, this work considered only classes of stars, whereas in reality tidal streams have populations of stars. Using a more realistic model for the stream stars' types can produce better forecasts for the power of Gaia and other surveys to discover the shape of our Galaxy.
+
+\acknowledgements{The authors gratefully acknowledge support from the European Research Council under ERC-Starting Grant GALACTICA-240271. We also thank David Hogg for extremely helpful discussions and feedback.}
 
 % 
 % \subsection{Variations}
