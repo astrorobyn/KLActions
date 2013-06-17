@@ -1,0 +1,350 @@
+The editors of ApJ, A&A, and MNRAS have adopted these headings for use 
+in the indexes of the three journals. Revisions and updating are made 
+annually by agreement among the editors. If you feel that the list lacks 
+an important heading, or that other revisions are needed, please send 
+an e-mail message to: apj@as.arizona.edu.  
+
+GENERAL  
+editorials, notices
+errata, addenda
+extraterrestrial intelligence
+history and philosophy of astronomy
+miscellaneous
+obituaries, biographies
+sociology of astronomy
+standards  
+
+PHYSICAL DATA AND PROCESSES  
+acceleration of particles
+accretion, accretion disks
+astrobiology
+astrochemistry
+atomic data
+atomic processes
+black hole physics
+conduction
+convection
+dense matter
+diffusion
+elementary particles
+equation of state
+gravitation
+gravitational lensing
+gravitational waves
+hydrodynamics
+instabilities
+line: formation
+line: identification
+line: profiles
+magnetic fields
+(magnetohydrodynamics:) MHD
+masers
+molecular data
+molecular processes
+neutrinos
+nuclear reactions, nucleosynthesis, abundances
+plasmas
+polarization
+radiation mechanisms: general
+radiation mechanisms: nonthermal
+radiation mechanisms: thermal
+radiative transfer
+relativity
+scattering
+shock waves
+stellar dynamics
+turbulence
+waves   
+
+ASTRONOMICAL INSTRUMENTATION, METHODS AND TECHNIQUES  
+atmospheric effects
+balloons
+celestial mechanics
+space vehicles
+instrumentation: adaptive optics
+instrumentation: detectors
+instrumentation: high angular resolution
+instrumentation: interferometers
+instrumentation: miscellaneous
+instrumentation: photometers
+instrumentation: polarimeters
+instrumentation: spectrographs
+methods: analytical
+methods: data analysis
+methods: laboratory
+methods: miscellaneous
+methods: n-body simulations
+methods: numerical
+methods: statistical
+site testing
+space vehicles: instruments
+techniques: high angular resolution
+techniques: image processing
+techniques: interferometric
+techniques: miscellaneous
+techniques: photometric
+techniques: polarimetric
+techniques: radar astronomy
+techniques: radial velocities
+techniques: spectroscopic
+telescopes   
+
+ASTRONOMICAL DATA BASES  
+astronomical data bases: miscellaneous
+atlases
+catalogs
+surveys   
+
+ASTROMETRY AND CELESTIAL MECHANICS  
+ astrometry
+eclipses
+ephemerides
+occultations
+reference systems
+time   
+
+THE SUN  
+Sun: abundances
+Sun: activity
+Sun: atmospheric motions
+Sun: atmosphere
+Sun: chromosphere
+Sun: corona
+Sun: coronal mass ejections (CMEs)
+Sun: evolution
+Sun: faculae, plages
+Sun: filaments
+Sun: flares
+Sun: fundamental parameters
+Sun: general
+Sun: granulation
+Sun: helioseismology
+Sun: infrared
+Sun: interior
+Sun: magnetic fields
+Sun: oscillations
+Sun: particle emission
+Sun: photosphere
+Sun: prominences
+Sun: radio radiation
+Sun: rotation
+(Sun:) solar-terrestrial relations
+(Sun:) solar wind
+(Sun:) sunspots
+Sun: transition region
+Sun: UV radiation
+Sun: X-rays, gamma rays   
+
+SOLAR SYSTEM  
+comets: general
+comets: individual (..., ...)
+Earth
+interplanetary medium
+Kuiper Belt
+meteors, meteoroids
+minor planets, asteroids
+Moon
+Oort Cloud
+planets: rings
+planets and satellites: formation
+planets and satellites: general
+planets and satellites: individual (alphabetic order)
+solar system: formation
+solar system: general   
+
+STARS  
+stars: abundances
+stars: activity
+stars: AGB and post-AGB
+stars: atmospheres
+(stars:) binaries (including multiple): close
+(stars:) binaries: eclipsing
+(stars:) binaries: general
+(stars:) binaries: symbiotic
+(stars:) binaries: spectroscopic
+(stars:) binaries: visual
+(stars:) blue stragglers
+stars: carbon
+stars: chemically peculiar
+stars: chromospheres
+(stars:) circumstellar matter
+stars: coronae
+stars: distances
+stars: dwarf novae
+stars: early-type
+stars: emission-line, Be
+stars: evolution
+stars: flare
+stars: formation
+stars: fundamental parameters (classification, colors, luminosities, masses, radii, temperatures, etc.)
+stars: general
+(stars:) Hertzsprung-Russell diagram
+stars: horizontal-branch
+stars: imaging
+stars: individual (..., ...)
+stars: interiors
+stars: kinematics
+stars: late-type
+stars: low-mass, brown dwarfs
+stars: luminosity function, mass function
+stars: magnetic fields
+stars: mass loss
+stars: neutron
+(stars:) novae, cataclysmic variables
+stars: oscillations (including pulsations)
+(stars:) planetary systems
+(stars:) planetary systems: formation
+(stars:) planetary systems: protoplanetary disks
+stars: Population II
+stars: pre--main-sequence
+(stars:) pulsars: general
+(stars:) pulsars: individual (..., ...)
+stars: rotation
+stars: spots
+stars: statistics
+(stars:) subdwarfs
+(stars:) supergiants
+(stars:) supernovae: general
+(stars:) supernovae: individual (..., ...)
+stars: winds, outflows
+(stars: variables:) Cepheids
+(stars: variables:) delta Scuti
+stars: variables: other
+(stars:) white dwarfs
+stars: Wolf-Rayet   
+
+INTERSTELLAR MEDIUM (ISM), NEBULAE  
+ISM: abundances
+ISM: atoms
+ISM: bubbles
+ISM: clouds
+(ISM:) cosmic rays
+(ISM:) dust, extinction
+ISM: evolution
+ISM: general
+ISM: globules
+ISM: Herbig-Haro objects
+(ISM:) HII regions
+ISM: individual (..., ...) (except planetary nebulae)
+ISM: jets and outflows
+ISM: kinematics and dynamics
+ISM: lines and bands
+ISM: magnetic fields
+ISM: molecules
+(ISM:) planetary nebulae: general
+(ISM:) planetary nebulae: individual (..., ...)
+(ISM:) reflection nebulae
+ISM: structure
+(ISM:) supernova remnants   
+
+THE GALAXY  
+Galaxy: abundances
+Galaxy: bulge
+Galaxy: center
+Galaxy: disk
+Galaxy: evolution
+Galaxy: formation
+Galaxy: fundamental parameters
+Galaxy: general
+(Galaxy:) globular clusters: general
+(Galaxy:) globular clusters: individual (..., ...)
+Galaxy: halo
+Galaxy: kinematics and dynamics
+Galaxy: nucleus
+(Galaxy:) open clusters and associations: general
+(Galaxy:) open clusters and associations: individual (..., ...)
+(Galaxy:) solar neighborhood
+Galaxy: stellar content
+Galaxy: structure   
+
+GALAXIES  
+galaxies: abundances
+galaxies: active
+(galaxies:) BL Lacertae objects: general
+(galaxies:) BL Lacertae objects: individual (..., ...)
+galaxies: bulges
+galaxies: clusters: general
+galaxies: clusters: individual (..., ...)
+galaxies: star clusters
+(galaxies:) cooling flows
+galaxies: distances and redshifts
+galaxies: dwarf
+galaxies: elliptical and lenticular, cD
+galaxies: evolution
+galaxies: formation
+galaxies: fundamental parameters (classification, colors, luminosities, masses, radii, etc.)
+galaxies: general
+galaxies: halos
+galaxies: high-redshift
+galaxies: individual (..., ...)
+galaxies: interactions
+(galaxies:) intergalactic medium
+galaxies: ISM
+galaxies: irregular
+galaxies: jets
+galaxies: kinematics and dynamics
+(galaxies:) Local Group
+galaxies: luminosity function, mass function
+(galaxies:) Magellanic Clouds
+galaxies: magnetic fields
+galaxies: nuclei
+galaxies: peculiar
+galaxies: photometry
+(galaxies:) quasars: absorption lines
+(galaxies:) quasars: emission lines
+(galaxies:) quasars: general
+(galaxies:) quasars: individual (..., ...)
+galaxies: Seyfert
+galaxies: spiral
+galaxies: starburst
+galaxies: star clusters
+galaxies: statistics
+galaxies: stellar content
+galaxies: structure   
+
+COSMOLOGY  
+(cosmology:) cosmic microwave background
+(cosmology:) cosmological parameters
+cosmology: miscellaneous
+cosmology: observations
+cosmology: theory
+(cosmology:) dark matter
+(cosmology:) diffuse radiation
+(cosmology:) distance scale
+(cosmology:) early universe
+(cosmology:) large-scale structure of universe   
+
+SOURCES AS A FUNCTION OF WAVELENGTH  
+gamma rays: bursts
+gamma rays: observations
+gamma rays: theory
+infrared: galaxies
+infrared: general
+infrared: ISM
+infrared: solar system
+infrared: stars
+radio continuum: galaxies
+radio continuum: general
+radio continuum: ISM
+radio continuum: solar system
+radio continuum: stars
+radio lines: galaxies
+radio lines: general
+radio lines: ISM
+radio lines: solar system
+radio lines: stars
+submillimeter
+ultraviolet: galaxies
+ultraviolet: general
+ultraviolet: ISM
+ultraviolet: solar system
+ultraviolet: stars
+X-rays: binaries
+X-rays: bursts
+X-rays: diffuse background
+X-rays: galaxies
+X-rays: galaxies: clusters
+X-rays: general
+X-rays: individual (..., ...)
+X-rays: ISM
+X-rays: stars   
